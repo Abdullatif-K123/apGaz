@@ -26,7 +26,7 @@ const PersonalInfo = () => {
           src={rnPerson}
           width={134}
           height={134}
-          style={{ objectFit: "none" }}
+          style={{ objectFit: "cover" }}
           className="personImg"
         />
         <div className="personNameCarrer">
