@@ -119,9 +119,10 @@ body {
     color-scheme: dark;
   }
 }
+/* Styling for ApecGaz */
 /* Styles for screens with a width of 390 pixels or less */
 @media screen and (max-width: 450px) {
-  .mainPage {
+  .mainPage1 {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -146,7 +147,7 @@ body {
 
     z-index: 2;
   }
-  .personalInfo {
+  .personalInfo1 {
     background-color: #0060ad;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     min-width: 85%;
@@ -160,9 +161,509 @@ body {
     border-radius: 37px;
     z-index: 10;
   }
-  .personImg {
+  .personImg1 {
     border-radius: 30px;
     margin-top: -145px;
+  }
+  .personNameCarrer1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .personNameCarrer1 > h2 {
+    font-family: "Montserrat";
+    color: #ffffff;
+    font-weight: bold;
+    text-align: center;
+    font-size: 21pt;
+  }
+  .personNameCarrer1 > p {
+    font-family: "Montserrat";
+    color: #ffffff;
+    font-weight: 400;
+    text-align: center;
+    font-size: 14pt;
+  }
+  .peronalSocial1 {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+  }
+
+  .iconBorder1 {
+    background-color: #ffffff;
+    padding: 6px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+  }
+  .socialIcon1 {
+    font-size: 19px;
+    color: #0060ad;
+  }
+  .personContact1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 25px;
+    color: #ffffff;
+    font-family: "Montserrat";
+    text-align: center;
+  }
+  .personContact1 > h3:first-child {
+    font-weight: 600;
+    letter-spacing: 0.1em;
+  }
+
+  .personContact1 h3:not(:last-child) {
+    border-bottom: 1px solid #ffffff;
+    padding-bottom: 20px;
+    width: 120%;
+  }
+  .personContact1 h3:not(:first-child) {
+    font-weight: 400;
+  }
+  .link1 {
+    text-decoration: none;
+    color: #ffffff;
+  }
+  .mentionBrand1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 8px;
+    padding-bottom: 2px;
+    margin-top: 15px;
+  }
+  .mentionBrand1 > p {
+    font-family: "Montserrat";
+    font-weight: 600;
+    font-style: italic;
+    font-size: 15px;
+  }
+  .download1 {
+    text-align: center;
+    background: #fff;
+    padding: 5px 35px;
+    border-top-left-radius: 35px;
+    cursor: pointer;
+    margin-left: auto;
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.3);
+  }
+  .download1 > h3 {
+    color: #da001a;
+    font-family: "Montserrat";
+    font-weight: 600;
+    font-size: 20pt;
+  }
+  .download1 > p {
+    color: #da001a;
+    font-family: sans-serif;
+    font-size: 12px;
+    font-style: italic;
+    margin-right: auto;
+    font-size: 10pt;
+  }
+}
+
+@media (max-height: 760px) {
+  .mainPage1 {
+    padding-top: 2px;
+  }
+  .personalInfo1 {
+    margin-top: 30px;
+    padding: 4px 0;
+    row-gap: 20px;
+  }
+  .personImg1 {
+    margin-top: -70px;
+  }
+
+  .personNameCarrer1 > p {
+    font-size: 12pt;
+  }
+  .personContact1 {
+    row-gap: 15px;
+  }
+}
+
+/* Styling for AP GAZ */
+
+/* Styles for screens with a width of 390 pixels or less */
+@media screen and (max-width: 450px) {
+  .mainPage2 {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    justify-content: space-between;
+    padding-top: 10px;
+  }
+  .dotedImage2 {
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+
+    z-index: 2;
+  }
+  .dotedImage21 {
+    position: absolute;
+    top: 50%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+
+    z-index: 2;
+  }
+  .personalInfo2 {
+    background-color: #ae111a;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    min-width: 85%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    row-gap: 25px;
+    padding: 70px 0 0 0;
+    border-radius: 37px;
+    z-index: 10;
+  }
+  .personImg2 {
+    border-radius: 30px;
+    margin-top: -145px;
+  }
+  .personNameCarrer2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .personNameCarrer2 > h2 {
+    font-family: "Montserrat";
+    color: #ffffff;
+    font-weight: bold;
+    text-align: center;
+    font-size: 21pt;
+  }
+  .personNameCarrer2 > p {
+    font-family: "Montserrat";
+    color: #ffffff;
+    font-weight: 400;
+    text-align: center;
+    font-size: 14pt;
+  }
+  .peronalSocial2 {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+  }
+
+  .iconBorder2 {
+    background-color: #ffffff;
+    padding: 6px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+  }
+  .socialIcon2 {
+    font-size: 19px;
+    color: #d0031f;
+  }
+  .personContact2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 25px;
+    color: #ffffff;
+    font-family: "Montserrat";
+    text-align: center;
+  }
+  .personContact2 > h3:first-child {
+    font-weight: 600;
+    letter-spacing: 0.1em;
+  }
+
+  .personContact2 h3:not(:last-child) {
+    border-bottom: 1px solid #ffffff;
+    padding-bottom: 20px;
+    width: 120%;
+  }
+  .personContact2 h3:not(:first-child) {
+    font-weight: 400;
+  }
+  .link2 {
+    text-decoration: none;
+    color: #ffffff;
+  }
+  .mentionBrand2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 8px;
+    padding-bottom: 2px;
+    margin-top: 15px;
+  }
+  .mentionBrand2 > p {
+    font-family: "Montserrat";
+    font-weight: 600;
+    color: #ffffff;
+    font-style: italic;
+    font-size: 15px;
+  }
+  .download2 {
+    text-align: center;
+    background: #fff;
+    padding: 5px 35px;
+    border-top-left-radius: 35px;
+    cursor: pointer;
+    margin-left: auto;
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.3);
+  }
+  .download2 > h3 {
+    color: #484848;
+    font-family: "Montserrat";
+    font-weight: 600;
+    font-size: 20pt;
+  }
+  .download2 > p {
+    color: #484848;
+    font-family: sans-serif;
+    font-size: 12px;
+    font-style: italic;
+    margin-right: auto;
+    font-size: 10pt;
+  }
+}
+
+@media (max-height: 760px) {
+  .mainPage2 {
+    padding-top: 2px;
+  }
+  .personalInfo2 {
+    margin-top: 30px;
+    padding: 4px 0;
+    row-gap: 20px;
+  }
+  .personImg2 {
+    margin-top: -70px;
+  }
+
+  .personNameCarrer2 > p {
+    font-size: 12pt;
+  }
+  .personContact2 {
+    row-gap: 15px;
+  }
+}
+
+/* Eco Gaz */
+/* Styles for screens with a width of 390 pixels or less */
+@media screen and (max-width: 450px) {
+  .mainPage3 {
+    background: #0f8642;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    justify-content: space-between;
+    padding-top: 5px;
+  }
+  .dotedImage3 {
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    transform: translate(-30%, -50%);
+
+    z-index: 2;
+  }
+  .personalInfo3 {
+    background-color: #f1f1f1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    min-width: 85%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    row-gap: 25px;
+    padding: 70px 0 0 0;
+    border-radius: 37px;
+    z-index: 10;
+  }
+  .personImg3 {
+    border-radius: 30px;
+    margin-top: -145px;
+  }
+  .personNameCarrer3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .personNameCarrer3 > h2 {
+    font-family: "Montserrat";
+    color: #6f6f6f;
+    font-weight: bold;
+    text-align: center;
+    font-size: 21pt;
+  }
+  .personNameCarrer3 > p {
+    font-family: "Montserrat";
+    color: #6f6f6f;
+    font-weight: 400;
+    text-align: center;
+    font-size: 14pt;
+  }
+  .peronalSocial3 {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+  }
+
+  .iconBorder3 {
+    background-color: #0f8642;
+    padding: 6px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+  }
+  .socialIcon3 {
+    font-size: 19px;
+    color: #ffffff;
+  }
+  .personContact3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 25px;
+    color: #6f6f6f;
+    font-family: "Montserrat";
+    text-align: center;
+  }
+  .personContact3 > h3:first-child {
+    font-weight: 600;
+    letter-spacing: 0.1em;
+  }
+
+  .personContact3 h3:not(:last-child) {
+    border-bottom: 1px solid #6f6f6f;
+    padding-bottom: 20px;
+    width: 120%;
+  }
+  .personContact3 h3:not(:first-child) {
+    font-weight: 400;
+  }
+  .link {
+    text-decoration: none;
+    color: #6f6f6f;
+  }
+  .mentionBrand3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 8px;
+    padding-bottom: 2px;
+    margin-top: 15px;
+  }
+  .mentionBrand3 > p {
+    font-family: "Montserrat";
+    font-weight: 600;
+    font-style: italic;
+    font-size: 15px;
+    color: #d0031f;
+  }
+  .download3 {
+    text-align: center;
+    background: #fff;
+    padding: 5px 35px;
+    border-top-left-radius: 35px;
+    cursor: pointer;
+    margin-left: auto;
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.3);
+  }
+  .download3 > h3 {
+    color: #0f8642;
+    font-family: "Montserrat";
+    font-weight: 600;
+    font-size: 18pt;
+  }
+  .download3 > p {
+    color: #0f8642;
+    font-family: sans-serif;
+
+    font-style: italic;
+    margin-right: auto;
+    font-size: 9pt;
+  }
+}
+
+@media (max-height: 775px) {
+  .mainPage3 {
+    padding-top: 2px;
+  }
+  .personalInfo3 {
+    margin-top: 30px;
+    padding: 4px 0;
+    row-gap: 20px;
+  }
+  .personImg3 {
+    margin-top: -70px;
+  }
+
+  .personNameCarrer3 > p {
+    font-size: 12pt;
+  }
+  .personContact3 {
+    row-gap: 15px;
+  }
+}
+
+/* APEC personal */
+/* Styles for screens with a width of 390 pixels or less */
+@media screen and (max-width: 450px) {
+  .mainPage {
+    background: #c11821;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    justify-content: space-between;
+    padding-top: 10px;
+  }
+  .dotedImage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    z-index: 2;
+  }
+  .personalInfo {
+    background-color: #f1f1f1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    min-width: 85%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 20px;
+    padding: 100px 0;
+    border-radius: 37px;
+    z-index: 10;
+  }
+  .personImg {
+    border-radius: 30px;
+    margin-top: -195px;
   }
   .personNameCarrer {
     display: flex;
@@ -171,14 +672,14 @@ body {
   }
   .personNameCarrer > h2 {
     font-family: "Montserrat";
-    color: #ffffff;
+    color: rgb(72, 72, 72);
     font-weight: bold;
     text-align: center;
     font-size: 21pt;
   }
   .personNameCarrer > p {
     font-family: "Montserrat";
-    color: #ffffff;
+    color: rgb(112, 112, 112);
     font-weight: 400;
     text-align: center;
     font-size: 14pt;
@@ -190,7 +691,7 @@ body {
   }
 
   .iconBorder {
-    background-color: #ffffff;
+    background-color: #d0031f;
     padding: 6px;
     border-radius: 50%;
     display: flex;
@@ -201,14 +702,14 @@ body {
   }
   .socialIcon {
     font-size: 19px;
-    color: #0060ad;
+    color: #ffffff;
   }
   .personContact {
     display: flex;
     flex-direction: column;
     align-items: center;
     row-gap: 25px;
-    color: #ffffff;
+    color: #484848;
     font-family: "Montserrat";
     text-align: center;
   }
@@ -218,7 +719,7 @@ body {
   }
 
   .personContact h3:not(:last-child) {
-    border-bottom: 1px solid #ffffff;
+    border-bottom: 1px solid black;
     padding-bottom: 20px;
     width: 120%;
   }
@@ -227,21 +728,7 @@ body {
   }
   .link {
     text-decoration: none;
-    color: #ffffff;
-  }
-  .mentionBrand {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    column-gap: 8px;
-    padding-bottom: 2px;
-    margin-top: 15px;
-  }
-  .mentionBrand > p {
-    font-family: "Montserrat";
-    font-weight: 600;
-    font-style: italic;
-    font-size: 15px;
+    color: #484848;
   }
   .download {
     text-align: center;
@@ -253,13 +740,13 @@ body {
     box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.3);
   }
   .download > h3 {
-    color: #da001a;
+    color: #c11622;
     font-family: "Montserrat";
     font-weight: 600;
     font-size: 20pt;
   }
   .download > p {
-    color: #da001a;
+    color: #8d8d8d;
     font-family: sans-serif;
     font-size: 12px;
     font-style: italic;
@@ -274,17 +761,10 @@ body {
   }
   .personalInfo {
     margin-top: 30px;
-    padding: 4px 0;
-    row-gap: 20px;
+    padding: 50px 0;
+    row-gap: 15px;
   }
   .personImg {
-    margin-top: -70px;
-  }
-
-  .personNameCarrer > p {
-    font-size: 12pt;
-  }
-  .personContact {
-    row-gap: 15px;
+    margin-top: -130px;
   }
 }
