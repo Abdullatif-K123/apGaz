@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     marginTop: "60px",
   },
   svg: {
-    width: 225,
+    width: 195,
     height: 95,
     marginTop: "20px",
     marginBottom: "60px",
