@@ -89,7 +89,36 @@ body {
   color: rgb(var(--foreground-rgb));
   background: #ffffff;
 }
-
+.colorPdf {
+  color: blue;
+}
+.downloadPdf {
+  background-color: #a6a6ee;
+  width: 180px;
+  height: 70px;
+  display: flex;
+  margin-top: 20%;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+  text-decoration: none;
+  color: #fff;
+  font-family: "Montserrat";
+  font-weight: bold;
+}
+.fontDownload {
+  text-decoration: none;
+  color: #fff;
+  font-family: "Montserrat";
+  border-bottom: none;
+}
+.downloadPage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
 @font-face {
   font-family: "Montserrat";
   src: url("../public//assets//fonts/Montserrat-Regular.ttf");
@@ -127,7 +156,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
+    height: 105vh;
     justify-content: space-between;
     padding-top: 10px;
   }
@@ -267,6 +296,9 @@ body {
     margin-right: auto;
     font-size: 10pt;
   }
+  .qrshow1 > h3 {
+    color: #d0031f !important;
+  }
 }
 
 @media (max-height: 760px) {
@@ -372,6 +404,9 @@ body {
 
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
   }
+  .iconBorderWeb {
+    padding: 5px;
+  }
   .socialIcon2 {
     font-size: 19px;
     color: #d0031f;
@@ -440,6 +475,33 @@ body {
     margin-right: auto;
     font-size: 10pt;
   }
+  .qrShow2 {
+    background-color: #fff;
+    padding: 3px 10px;
+    margin-bottom: 0;
+    cursor: pointer;
+    border-top-right-radius: 10px;
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.3);
+  }
+  .qrShow2 > h3 {
+    color: #484848;
+    font-family: "Montserrat";
+    font-weight: 600;
+    font-size: 13pt;
+    text-align: center;
+  }
+  .scan2 > h1 {
+    color: #da001a;
+  }
+  .scan2 > h1 > span {
+    color: #454545;
+  }
+  .scan1 > h1 {
+    color: #da001a;
+  }
+  .scan1 > h1 > span {
+    color: #0060ad;
+  }
 }
 
 @media (max-height: 760px) {
@@ -465,7 +527,7 @@ body {
 
 /* Eco Gaz */
 /* Styles for screens with a width of 390 pixels or less */
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 600px) {
   .mainPage3 {
     background: #0f8642;
     position: relative;
@@ -476,14 +538,41 @@ body {
     justify-content: space-between;
     padding-top: 5px;
   }
-  .dotedImage3 {
-    position: absolute;
-    top: 50%;
-    left: 30%;
-    transform: translate(-30%, -50%);
 
-    z-index: 2;
+  .mainScan3 {
+    background: #0f8642;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 5px;
+    height: 100vh;
+    display: none;
   }
+  .scan {
+    justify-content: center;
+    row-gap: 10px;
+    color: wihte;
+    width: 100vw;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -20px;
+  }
+
+  .scan > h1 {
+    font-family: "Montserrat";
+    margin-top: 20px;
+  }
+  .dotedImage3 {
+    position: fixed;
+    top: 30%;
+    left: 0;
+    z-index: 0;
+  }
+
   .personalInfo3 {
     background-color: #f1f1f1;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
@@ -492,6 +581,8 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    margin-top: 10px;
+    margin-bottom: 10px;
 
     row-gap: 25px;
     padding: 70px 0 0 0;
@@ -563,7 +654,7 @@ body {
   .personContact3 h3:not(:first-child) {
     font-weight: 400;
   }
-  .link {
+  .link3 {
     text-decoration: none;
     color: #6f6f6f;
   }
@@ -571,9 +662,12 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    column-gap: 8px;
+    column-gap: 6px;
     padding-bottom: 2px;
     margin-top: 15px;
+  }
+  .poLogoApec {
+    margin-top: 7px;
   }
   .mentionBrand3 > p {
     font-family: "Montserrat";
@@ -591,11 +685,21 @@ body {
     margin-left: auto;
     box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.3);
   }
+  .qr {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    border-top-right-radius: 35px;
+    border-top-left-radius: 0px;
+  }
   .download3 > h3 {
     color: #0f8642;
     font-family: "Montserrat";
     font-weight: 600;
     font-size: 18pt;
+  }
+  .qr > h3 {
+    font-size: 16pt;
   }
   .download3 > p {
     color: #0f8642;
@@ -605,9 +709,27 @@ body {
     margin-right: auto;
     font-size: 9pt;
   }
+  .actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .qrShow {
+    background-color: #fff;
+    padding: 3px 10px;
+    margin-bottom: 0;
+    cursor: pointer;
+  }
+  .qrShow > h3 {
+    color: #0f8642;
+    font-family: "Montserrat";
+    font-weight: 600;
+    font-size: 13pt;
+  }
 }
 
-@media (max-height: 775px) {
+@media (max-height: 820px) {
   .mainPage3 {
     padding-top: 2px;
   }
@@ -640,6 +762,10 @@ body {
     height: 100vh;
     justify-content: space-between;
     padding-top: 10px;
+  }
+  .apecLogo {
+    cursor: pointer;
+    margin-bottom: 15px;
   }
   .dotedImage {
     position: absolute;
@@ -693,6 +819,16 @@ body {
   .iconBorder {
     background-color: #d0031f;
     padding: 6px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+  }
+  .iconBorderweb {
+    background-color: #d0031f;
+    padding: 5px;
     border-radius: 50%;
     display: flex;
     align-items: center;

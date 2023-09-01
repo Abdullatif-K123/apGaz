@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Image from "next/image";
-import rnPerson from "../../public/assets/png&jpg/rnPerson.jpg";
 import { FaFacebookF } from "react-icons/fa";
 import { FaTiktok } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
@@ -9,31 +8,94 @@ import apGaz from "../../public/assets/svg/apGaz.svg";
 import apecWhite from "../../public/assets/svg/apeWhite.svg";
 import Link from "next/link";
 import redoted from "../../public/assets/svg/redDoted.svg";
-import doted from "../../public/assets/png&jpg/doted.png";
-import doted2 from "../../public/assets/svg/Group -1.svg";
-import doted3 from "../../public/assets/svg/Group -3.svg";
-import doted4 from "../../public/assets/svg/Group -4.svg";
-import doted5 from "../../public/assets/svg/Group 511.svg";
-import NextLink from "next/link";
+import earthBlue from "/public/assets/png&jpg/earthBlue.png";
 import person from "/public/assets/png&jpg/person.jpg";
 import useDownloader from "react-use-downloader";
+import jsPDF from "jspdf";
+import html2canvas from "html2canvas";
+import QRCode from "react-qr-code";
+import doted3 from "../../public/assets/svg/Group -3.svg";
 const APGaz = ({ data }) => {
+  const [qrShow, setQrShow] = useState(false);
   const [imageError, setImageError] = useState(false);
   const { download } = useDownloader();
   const url = "https://dashboard.apec.com.lb/api/setting/download/pdfBrochure";
   const { social_link } = data;
   const { user } = data;
   const name = user.name.split(" ");
-  const first_name = name[0];
-  const last_name = name[1];
+  const mr = name[0];
+  const first_name = name[1];
+  const remainingName = name.slice(2).join(" ");
   const handleImageError = () => {
     setImageError(true);
   };
+
+  const phoneNum = user?.other_phone_number;
+
+  const handleDownload = () => {
+    const input = document.body;
+    let sizeWidth = 1;
+    window.innerWidth >= 390
+      ? (sizeWidth = 2.8)
+      : window.innerWidth <= 375
+      ? (sizeWidth = 2.5)
+      : (sizeWidth = 2.7);
+    if (window.innerWidth >= 405) {
+      sizeWidth = 3.2;
+    }
+    if (window.innerWidth <= 420 && window.innerWidth >= 405) {
+      sizeWidth = 3;
+    }
+
+    html2canvas(input, { width: window.width, height: window.height }).then(
+      (canvas) => {
+        const imgWidth = canvas.width;
+        const imgHeight = canvas.height;
+        let quarter = imgWidth / sizeWidth;
+        if (qrShow) quarter = 1;
+        console.log(imgWidth);
+        const imgData = canvas.toDataURL("image/png");
+        const pdf = new jsPDF({
+          orientation: "portrait", // adjust orientation if needed
+          unit: "px",
+          format: [imgWidth - quarter, imgHeight], // set PDF dimensions to match the screenshot
+          marginLeft: 0,
+        });
+
+        pdf.addImage(imgData, "PNG", 0, 0, imgWidth, imgHeight);
+        pdf.save("cardQr.pdf");
+      }
+    );
+  };
+  if (qrShow) {
+    return (
+      <div className="mainPage2">
+        <div className="scan scan1">
+          <Image src={apGaz} width={185} height={145} />
+          <QRCode
+            value={`https://card.apec.com.lb/?id=${user.id}`}
+            size={190}
+            fgColor="black"
+            bgColor="white"
+            onClick={handleDownload}
+          />
+          <h1>
+            SCAN <span>ME</span>
+          </h1>
+          <div className="download2 qr" onClick={() => setQrShow(false)}>
+            <h3>Back to profile</h3>
+          </div>
+        </div>
+      </div>
+    );
+  }
   return (
     <div className="mainPage1">
-      <Image src={redoted} width={900} height={270} className="dotedImage2" />
-      <Image src={redoted} width={900} height={270} className="dotedImage21" />
-      <Image src={apGaz} width={197} height={96} />
+      <Image src={doted3} width={700} height={270} className="dotedImage3" />
+      <Link href="https://apec.com.lb/">
+        {" "}
+        <Image src={apGaz} width={197} height={96} />
+      </Link>
       <div className="personalInfo1">
         {imageError ? (
           <Image
@@ -42,6 +104,7 @@ const APGaz = ({ data }) => {
             height={134}
             className="personImg2"
             style={{ objectFit: "cover" }}
+            onClick={handleDownload}
           />
         ) : (
           <Image
@@ -51,13 +114,14 @@ const APGaz = ({ data }) => {
             style={{ objectFit: "cover" }}
             className="personImg1"
             onError={handleImageError}
+            onClick={handleDownload}
           />
         )}
         <div className="personNameCarrer1">
           <h2>
-            {first_name}
+            {mr} {first_name}
             <br />
-            {last_name}
+            {remainingName}
           </h2>
           <p>{user.position}</p>
         </div>
@@ -102,14 +166,34 @@ const APGaz = ({ data }) => {
               <FaLinkedinIn className="socialIcon1" />
             </Link>
           </div>
+          <div className="social1">
+            <Link
+              target="_blank"
+              href="https://apec.com.lb/"
+              passHref
+              className="iconBorder1 iconBorderWeb"
+            >
+              <Image src={earthBlue} width={20} height={20} />
+            </Link>
+          </div>
         </div>
         <div className="personContact1">
           <h3>
-            <Link href={`tel:+961${user.phone_number}`} className="link1">
+            <Link
+              href={`https://wa.me/${`+961${user.phone_number}`}`}
+              className="link1"
+            >
               +961{user.phone_number}
             </Link>
           </h3>
-          <h3>Tripoli, North Lebanon</h3>
+          {phoneNum ? (
+            <h3>
+              <Link href={`tel:${`${user.phone_number}`}`} className="link1">
+                {phoneNum}
+              </Link>
+            </h3>
+          ) : null}
+          <h3>{user.location}</h3>
           <h3>
             <Link href={`mailto:${user.email}`} className="link1">
               {user.email}
@@ -117,15 +201,25 @@ const APGaz = ({ data }) => {
           </h3>
         </div>
         <div className="mentionBrand1">
-          <p>Powered by </p> <Image src={apecWhite} width={45} height={45} />
+          <p>Powered by </p>{" "}
+          <Link href="https://apec.com.lb/">
+            <Image src={apecWhite} width={45} height={45} />
+          </Link>
         </div>
       </div>
-      <div
-        className="download1  redIcon1"
-        onClick={() => download(url, "Apec-cp.pdf")}
-      >
-        <h3>Download</h3>
-        <p>our company profile</p>
+
+      <div className="actions">
+        <div className="qrShow2 scan1" onClick={() => setQrShow(true)}>
+          <h3>Show QR</h3>
+          <h3>Code</h3>
+        </div>
+        <div
+          className="download1  redIcon2"
+          onClick={() => download(url, "Apec.pdf")}
+        >
+          <h3>Download</h3>
+          <p>our company profile</p>
+        </div>
       </div>
     </div>
   );

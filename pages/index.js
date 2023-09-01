@@ -4,14 +4,15 @@ import ApecGaz from "@/components/home/ApecGaz";
 import PersonalInfo from "@/components/home/PersonalInfo";
 import NotFound from "@/components/NotFound";
 import { fetchData } from "./api/fetchData";
+import EcoGAzPdf from "@/components/home/EcoGazPdf";
 import { useRouter } from "next/router";
+import Download from "@/components/home/Download";
 export default function Home({ data }) {
-  console.log(data);
   if (!data) return <NotFound />;
   if (data.user.company === "Ecogas") return <EcoGaz data={data} />;
   if (data.user.company === "Apec") return <PersonalInfo data={data} />;
-  if (data.user.company === "Apec Gas") return <ApecGaz data={data} />;
-  if (data.user.company === "Apgaz") return <APGaz data={data} />;
+  if (data.user.company === "Apec Gas") return <Download data={data} />;
+  if (data.user.company === "Apgaz") return <Download data={data} />;
 }
 
 export async function getServerSideProps(context) {
