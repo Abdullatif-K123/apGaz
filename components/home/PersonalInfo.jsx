@@ -92,7 +92,7 @@ const PersonalInfo = ({ data }) => {
   }
   return (
     <div className="mainPage">
-      <Image src={doted3} width={700} height={270} className="dotedImage3" />
+      <Image src={doted2} width={450} height={270} className="dotedImage3" />
       <Link href="https://apec.com.lb/">
         <Image
           src={apecWhite}

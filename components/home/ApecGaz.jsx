@@ -96,7 +96,7 @@ const ApecGaz = ({ data }) => {
   }
   return (
     <div className="mainPage2">
-      <Image src={doted3} width={700} height={270} className="dotedImage3" />
+      <Image src={doted3} width={450} height={270} className="dotedImage3" />
       <Link href="https://apec.com.lb/">
         <Image src={apecGaz} width={197} height={96} alt={"logo"} />
       </Link>
@@ -108,7 +108,6 @@ const ApecGaz = ({ data }) => {
             height={134}
             className="personImg2"
             style={{ objectFit: "cover" }}
-            onClick={handleDownload}
           />
         ) : (
           <Image
@@ -120,7 +119,6 @@ const ApecGaz = ({ data }) => {
             style={{ objectFit: "cover" }}
             layout="fixed"
             onError={handleImageError}
-            onClick={handleDownload}
           />
         )}
         <div className="personNameCarrer2">
@@ -216,10 +214,6 @@ const ApecGaz = ({ data }) => {
       </div>
 
       <div className="actions">
-        <div className="qrShow2" onClick={() => setQrShow(true)}>
-          <h3>Show QR</h3>
-          <h3>Code</h3>
-        </div>
         <div
           className="download2  redIcon2"
           onClick={() => download(url, "Apec.pdf")}

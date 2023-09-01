@@ -7,16 +7,22 @@ import { fetchData } from "./api/fetchData";
 import EcoGAzPdf from "@/components/home/EcoGazPdf";
 import { useRouter } from "next/router";
 import Download from "@/components/home/Download";
-export default function Home({ data }) {
+export default function Home({ data, downloads }) {
   if (!data) return <NotFound />;
-  if (data.user.company === "Ecogas") return <EcoGaz data={data} />;
-  if (data.user.company === "Apec") return <PersonalInfo data={data} />;
-  if (data.user.company === "Apec Gas") return <Download data={data} />;
-  if (data.user.company === "Apgaz") return <Download data={data} />;
+  if (data.user.company === "Ecogas")
+    return downloads ? <Download data={data} /> : <EcoGaz data={data} />;
+  if (data.user.company === "Apec")
+    return downloads ? <Download data={data} /> : <PersonalInfo data={data} />;
+  if (data.user.company === "Apec Gas")
+    return downloads ? <Download data={data} /> : <ApecGaz data={data} />;
+  if (data.user.company === "Apgaz")
+    return downloads ? <Download data={data} /> : <APGaz data={data} />;
 }
 
 export async function getServerSideProps(context) {
-  const { id } = context.query;
+  const { id, download } = context.query;
+  let downloads = download;
+  if (!download || download !== "true") downloads = false;
   const data = await fetchData(id);
 
   if (!data) {
@@ -29,6 +35,7 @@ export async function getServerSideProps(context) {
   return {
     props: {
       data,
+      downloads,
     },
   };
 }

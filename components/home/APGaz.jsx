@@ -91,7 +91,7 @@ const APGaz = ({ data }) => {
   }
   return (
     <div className="mainPage1">
-      <Image src={doted3} width={700} height={270} className="dotedImage3" />
+      <Image src={doted3} width={450} height={270} className="dotedImage3" />
       <Link href="https://apec.com.lb/">
         {" "}
         <Image src={apGaz} width={197} height={96} />
@@ -209,10 +209,6 @@ const APGaz = ({ data }) => {
       </div>
 
       <div className="actions">
-        <div className="qrShow2 scan1" onClick={() => setQrShow(true)}>
-          <h3>Show QR</h3>
-          <h3>Code</h3>
-        </div>
         <div
           className="download1  redIcon2"
           onClick={() => download(url, "Apec.pdf")}
