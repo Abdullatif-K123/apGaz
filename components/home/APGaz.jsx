@@ -104,7 +104,6 @@ const APGaz = ({ data }) => {
             height={134}
             className="personImg2"
             style={{ objectFit: "cover" }}
-            onClick={handleDownload}
           />
         ) : (
           <Image
@@ -114,7 +113,6 @@ const APGaz = ({ data }) => {
             style={{ objectFit: "cover" }}
             className="personImg1"
             onError={handleImageError}
-            onClick={handleDownload}
           />
         )}
         <div className="personNameCarrer1">
@@ -180,10 +178,10 @@ const APGaz = ({ data }) => {
         <div className="personContact1">
           <h3>
             <Link
-              href={`https://wa.me/${`+961${user.phone_number}`}`}
+              href={`https://wa.me/${`${user.phone_number}`}`}
               className="link1"
             >
-              +961{user.phone_number}
+              {user.phone_number}
             </Link>
           </h3>
           {phoneNum ? (

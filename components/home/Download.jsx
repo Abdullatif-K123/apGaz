@@ -1,4 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, {
+  useEffect,
+  useState,
+  useRef,
+  forwardRef,
+  useCallback,
+} from "react";
 import QrCode from "./QrCode";
 import EcoGAzPdf from "./EcoGazPdf";
 import ApecGazPdf from "./ApecGazPdf";
@@ -6,14 +12,27 @@ import ApGazPdf from "./ApGazPdf";
 import PersonalInfoPdf from "./PersonalInfoPdf";
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import { FaDownload } from "react-icons/fa";
-
+import { useRouter } from "next/router";
 const Download = ({ data }) => {
+  const router = useRouter();
   const [isClient, setIsClient] = useState(false);
+  const [rerender, setRerender] = useState(false);
+  const downloadLinkRef = useRef(null);
   useEffect(() => {
     setIsClient(true);
   }, []);
   const fileName = "Profile";
   const { user } = data;
+  const handleClicking = () => {
+    setRerender(true);
+  };
+  const onLoadingFinished = useCallback(function () {
+    // When this function is called the first time it is safe to initiate the download
+    const elem = downloadLinkRef?.current;
+    if (elem !== null) {
+      elem.click();
+    }
+  }, []);
   return (
     <div className="downloadPage">
       <div style={{ display: "none" }}>
@@ -22,7 +41,7 @@ const Download = ({ data }) => {
           documentId={user.id}
         />
       </div>
-      <div className="downloadPdf">
+      <div>
         {isClient ? (
           <PDFDownloadLink
             document={
@@ -40,11 +59,13 @@ const Download = ({ data }) => {
           >
             {({ blob, url, loading, error }) =>
               loading ? (
-                "Loading doc."
+                "loading Images"
               ) : (
-                <p className="fontDownload">
-                  Download PDF <FaDownload />
-                </p>
+                <WorkaroundContainer
+                  ref={downloadLinkRef}
+                  loading={loading}
+                  onLoadingFinished={onLoadingFinished}
+                />
               )
             }
           </PDFDownloadLink>
@@ -54,4 +75,21 @@ const Download = ({ data }) => {
   );
 };
 
+const WorkaroundContainer = forwardRef(function (
+  { loading, onLoadingFinished },
+  ref
+) {
+  useEffect(() => {
+    if (!loading) {
+      onLoadingFinished();
+    }
+  }, [loading]);
+
+  // If you only want to initiate the download imperatively, hide the element via CSS (e.g. `visibility: hidden`)
+  return (
+    <div style={{ display: "none" }} ref={ref}>
+      {loading ? "Loading..." : "Download PDF"}
+    </div>
+  );
+});
 export default Download;

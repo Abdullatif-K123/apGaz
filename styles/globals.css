@@ -107,10 +107,7 @@ body {
   font-weight: bold;
 }
 .fontDownload {
-  text-decoration: none;
-  color: #fff;
-  font-family: "Montserrat";
-  border-bottom: none;
+  display: none;
 }
 .downloadPage {
   display: flex;

@@ -184,15 +184,15 @@ const ApecGaz = ({ data }) => {
         <div className="personContact2">
           <h3>
             <Link
-              href={`https://wa.me/${`+961${user.phone_number}`}`}
+              href={`https://wa.me/${`${user.phone_number}`}`}
               className="link2"
             >
-              +961{user.phone_number}
+              +{user.phone_number}
             </Link>
           </h3>
           {phoneNum ? (
             <h3>
-              <Link href={`tel:${`0${user.phone_number}`}`} className="link2">
+              <Link href={`tel:${`${user.phone_number}`}`} className="link2">
                 {phoneNum}
               </Link>
             </h3>

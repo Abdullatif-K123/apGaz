@@ -109,7 +109,6 @@ const PersonalInfo = ({ data }) => {
             height={134}
             className="personImg2"
             style={{ objectFit: "cover" }}
-            onClick={handleDownload}
           />
         ) : (
           <Image
@@ -119,7 +118,6 @@ const PersonalInfo = ({ data }) => {
             style={{ objectFit: "cover" }}
             className="personImg"
             onError={handleImageError}
-            onClick={handleDownload}
           />
         )}
         <div className="personNameCarrer">
@@ -185,10 +183,10 @@ const PersonalInfo = ({ data }) => {
         <div className="personContact">
           <h3>
             <Link
-              href={`https://wa.me/${`+961${user.phone_number}`}`}
+              href={`https://wa.me/${`${user.phone_number}`}`}
               className="link"
             >
-              +961{user.phone_number}
+              {user.phone_number}
             </Link>
           </h3>
           {phoneNum ? (
