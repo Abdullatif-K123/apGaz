@@ -213,14 +213,12 @@ const ApecGaz = ({ data }) => {
         </div>
       </div>
 
-      <div className="actions">
-        <div
-          className="download2  redIcon2"
-          onClick={() => download(url, "Apec.pdf")}
-        >
-          <h3>Download</h3>
-          <p>our company profile</p>
-        </div>
+      <div
+        className="download2  redIcon2"
+        onClick={() => download(url, "Apec.pdf")}
+      >
+        <h3>Download</h3>
+        <p>our company profile</p>
       </div>
     </div>
   );

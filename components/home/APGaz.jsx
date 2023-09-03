@@ -181,7 +181,7 @@ const APGaz = ({ data }) => {
               href={`https://wa.me/${`${user.phone_number}`}`}
               className="link1"
             >
-              {user.phone_number}
+              +{user.phone_number}
             </Link>
           </h3>
           {phoneNum ? (
@@ -206,14 +206,12 @@ const APGaz = ({ data }) => {
         </div>
       </div>
 
-      <div className="actions">
-        <div
-          className="download1  redIcon2"
-          onClick={() => download(url, "Apec.pdf")}
-        >
-          <h3>Download</h3>
-          <p>our company profile</p>
-        </div>
+      <div
+        className="download1  redIcon2"
+        onClick={() => download(url, "Apec.pdf")}
+      >
+        <h3>Download</h3>
+        <p>our company profile</p>
       </div>
     </div>
   );

@@ -186,7 +186,7 @@ const PersonalInfo = ({ data }) => {
               href={`https://wa.me/${`${user.phone_number}`}`}
               className="link"
             >
-              {user.phone_number}
+              +{user.phone_number}
             </Link>
           </h3>
           {phoneNum ? (
@@ -205,14 +205,12 @@ const PersonalInfo = ({ data }) => {
         </div>
       </div>
 
-      <div className="actions">
-        <div
-          className="download  redIcon2"
-          onClick={() => download(url, "Apec.pdf")}
-        >
-          <h3>Download</h3>
-          <p>our company profile</p>
-        </div>
+      <div
+        className="download  redIcon2"
+        onClick={() => download(url, "Apec.pdf")}
+      >
+        <h3>Download</h3>
+        <p>our company profile</p>
       </div>
     </div>
   );

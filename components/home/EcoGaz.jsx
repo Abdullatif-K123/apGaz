@@ -38,143 +38,140 @@ const EcoGaz = ({ data }) => {
   const phoneNum = user?.other_phone_number;
 
   return (
-    <>
-      <div className="mainPage3" id="mainPage3" ref={page1}>
-        <Image src={doted2} width={450} height={270} className="dotedImage3" />
-        <Link href="https://apec.com.lb/">
+    <div className="mainPage3" id="mainPage3" ref={page1}>
+      <Image src={doted2} width={450} height={270} className="dotedImage3" />
+      <Link href="https://apec.com.lb/">
+        <Image
+          src={echoGaz}
+          width={145}
+          height={125}
+          style={{ marginTop: "-20px", marginBottom: "10px" }}
+        />
+      </Link>
+      <div className="personalInfo3">
+        {imageError ? (
           <Image
-            src={echoGaz}
-            width={145}
-            height={125}
-            style={{ marginTop: "-20px", marginBottom: "10px" }}
+            src={person}
+            width={135}
+            height={134}
+            className="personImg2"
+            style={{ objectFit: "cover" }}
           />
-        </Link>
-        <div className="personalInfo3">
-          {imageError ? (
-            <Image
-              src={person}
-              width={135}
-              height={134}
-              className="personImg2"
-              style={{ objectFit: "cover" }}
-            />
-          ) : (
-            <Image
-              src={user.avatar}
-              width={134}
-              height={134}
-              style={{ objectFit: "cover" }}
-              className="personImg3"
-              onError={handleImageError}
-              ref={imageRef}
-            />
-          )}
-          <div className="personNameCarrer3">
-            <h2>
-              {mr} {first_name}
-              <br />
-              {remainingName}
-            </h2>
-            <p>{user.position}</p>
+        ) : (
+          <Image
+            src={user.avatar}
+            width={134}
+            height={134}
+            style={{ objectFit: "cover" }}
+            className="personImg3"
+            onError={handleImageError}
+            ref={imageRef}
+          />
+        )}
+        <div className="personNameCarrer3">
+          <h2>
+            {mr} {first_name}
+            <br />
+            {remainingName}
+          </h2>
+          <p>{user.position}</p>
+        </div>
+        <div className="peronalSocial3">
+          <div className="social3">
+            <Link
+              href={social_link.instagram_url}
+              target="_blank"
+              passHref
+              className="iconBorder3"
+            >
+              <FaInstagram className="socialIcon3" />
+            </Link>
           </div>
-          <div className="peronalSocial3">
-            <div className="social3">
-              <Link
-                href={social_link.instagram_url}
-                target="_blank"
-                passHref
-                className="iconBorder3"
-              >
-                <FaInstagram className="socialIcon3" />
-              </Link>
-            </div>
-            <div className="social3">
-              <Link
-                href={social_link.facebook_url}
-                target="_blank"
-                passHref
-                className="iconBorder3"
-              >
-                <FaFacebookF className="socialIcon3" />
-              </Link>
-            </div>
-            <div className="social3">
-              <Link
-                href={social_link.tiktok_url}
-                target="_blank"
-                passHref
-                className="iconBorder3"
-              >
-                <FaTiktok className="socialIcon3" />
-              </Link>
-            </div>
-            <div className="social3">
-              <Link
-                target="_blank"
-                href={social_link.linkedin_url}
-                passHref
-                className="iconBorder3"
-              >
-                <FaLinkedinIn className="socialIcon3" />
-              </Link>
-            </div>
-            <div className="social">
-              <Link
-                target="_blank"
-                href="https://apec.com.lb/"
-                passHref
-                className="iconBorderWeb iconBorder3"
-              >
-                <Image src={earth} width={20} height={20} />
-              </Link>
-            </div>
+          <div className="social3">
+            <Link
+              href={social_link.facebook_url}
+              target="_blank"
+              passHref
+              className="iconBorder3"
+            >
+              <FaFacebookF className="socialIcon3" />
+            </Link>
           </div>
-          <div className="personContact3">
-            <h3>
-              <Link
-                href={`https://wa.me/${`${user.phone_number}`}`}
-                className="link3"
-              >
-                {user.phone_number}
-              </Link>
-            </h3>
-            {phoneNum ? (
-              <h3>
-                <Link href={`tel:${`${user.phone_number}`}`} className="link3">
-                  {phoneNum}
-                </Link>
-              </h3>
-            ) : null}
-            <h3>{user.location} </h3>
-            <h3>
-              <Link href={`mailto:${user.email}`} className="link3">
-                {user.email}
-              </Link>
-            </h3>
+          <div className="social3">
+            <Link
+              href={social_link.tiktok_url}
+              target="_blank"
+              passHref
+              className="iconBorder3"
+            >
+              <FaTiktok className="socialIcon3" />
+            </Link>
           </div>
-          <div className="mentionBrand3">
-            <p>Powered by </p>{" "}
-            <Link href="https://apec.com.lb/">
-              <Image
-                src={redApec}
-                width={43}
-                height={43}
-                className="poLogoApec"
-              />
+          <div className="social3">
+            <Link
+              target="_blank"
+              href={social_link.linkedin_url}
+              passHref
+              className="iconBorder3"
+            >
+              <FaLinkedinIn className="socialIcon3" />
+            </Link>
+          </div>
+          <div className="social">
+            <Link
+              target="_blank"
+              href="https://apec.com.lb/"
+              passHref
+              className="iconBorderWeb iconBorder3"
+            >
+              <Image src={earth} width={20} height={20} />
             </Link>
           </div>
         </div>
-        <div className="actions">
-          <div
-            className="download3  redIcon3"
-            onClick={() => download(url, "Apec.pdf")}
-          >
-            <h3>Download</h3>
-            <p>our company profile</p>
-          </div>
+        <div className="personContact3">
+          <h3>
+            <Link
+              href={`https://wa.me/${`${user.phone_number}`}`}
+              className="link3"
+            >
+              +{user.phone_number}
+            </Link>
+          </h3>
+          {phoneNum ? (
+            <h3>
+              <Link href={`tel:${`${user.phone_number}`}`} className="link3">
+                {phoneNum}
+              </Link>
+            </h3>
+          ) : null}
+          <h3>{user.location} </h3>
+          <h3>
+            <Link href={`mailto:${user.email}`} className="link3">
+              {user.email}
+            </Link>
+          </h3>
+        </div>
+        <div className="mentionBrand3">
+          <p>Powered by </p>{" "}
+          <Link href="https://apec.com.lb/">
+            <Image
+              src={redApec}
+              width={43}
+              height={43}
+              className="poLogoApec"
+            />
+          </Link>
         </div>
       </div>
-    </>
+
+      <div
+        className="download3  redIcon3"
+        onClick={() => download(url, "Apec.pdf")}
+      >
+        <h3>Download</h3>
+        <p>our company profile</p>
+      </div>
+    </div>
   );
 };
 
