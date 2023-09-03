@@ -186,7 +186,7 @@ const APGaz = ({ data }) => {
           </h3>
           {phoneNum ? (
             <h3>
-              <Link href={`tel:${`${user.phone_number}`}`} className="link1">
+              <Link href={`tel:${`${phoneNum}`}`} className="link1">
                 {phoneNum}
               </Link>
             </h3>

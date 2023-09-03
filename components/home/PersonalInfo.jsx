@@ -191,7 +191,7 @@ const PersonalInfo = ({ data }) => {
           </h3>
           {phoneNum ? (
             <h3>
-              <Link href={`tel:${`${user.phone_number}`}`} className="link">
+              <Link href={`tel:${`${phoneNum}`}`} className="link">
                 {phoneNum}
               </Link>
             </h3>

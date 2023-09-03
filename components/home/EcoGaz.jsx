@@ -139,7 +139,7 @@ const EcoGaz = ({ data }) => {
           </h3>
           {phoneNum ? (
             <h3>
-              <Link href={`tel:${`${user.phone_number}`}`} className="link3">
+              <Link href={`tel:${`${phoneNum}`}`} className="link3">
                 {phoneNum}
               </Link>
             </h3>
