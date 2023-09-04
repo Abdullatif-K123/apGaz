@@ -206,7 +206,7 @@ const ApGazPdf = ({ data, id }) => {
               <View style={styles.iconBorder3}>
                 <Image
                   AllowDangerousPaths
-                  src="/assets/png&jpg/linkedInBlue.png"
+                  src="/assets/png&jpg/linkedinBlue.png"
                   style={styles.socialIcon3}
                 />
               </View>

@@ -14,7 +14,6 @@ import { FaFacebookF } from "react-icons/fa";
 import { FaTiktok } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
-import echoGaz from "/public/assets/svg/ecoGaz.svg";
 import QRCode from "qrcode.react";
 import { saveAs } from "file-saver";
 import QrCode from "./QrCode";
@@ -214,7 +213,7 @@ const ApecGazPdf = ({ data, id }) => {
               <View style={styles.iconBorder3}>
                 <Image
                   AllowDangerousPaths
-                  src="/assets/png&jpg/linkedInRed.png"
+                  src="/assets/png&jpg/linkedinRed.png"
                   style={styles.socialIcon3}
                 />
               </View>
