@@ -156,7 +156,6 @@ const styles = StyleSheet.create({
   },
   mentionText: {
     fontFamily: "Montserrat",
-    fontWeight: "600",
     fontStyle: "italic",
     fontSize: "20px",
     color: "#fff",
