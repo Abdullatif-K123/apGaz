@@ -16,13 +16,14 @@ import doted4 from "../../public/assets/svg/Group -4.svg";
 import doted5 from "../../public/assets/svg/Group 511.svg";
 import person from "/public/assets/png&jpg/person.jpg";
 import useDownloader from "react-use-downloader";
-
+import Download from "./Download";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
 import QRCode from "react-qr-code";
 import NextLink from "next/link";
 const ApecGaz = ({ data }) => {
   const [qrShow, setQrShow] = useState(false);
+  const [downloadQr, setDownloadQr] = useState(false);
   const { download } = useDownloader();
   const url = "https://dashboard.apec.com.lb/api/setting/download/pdfBrochure";
   const { social_link } = data;
@@ -37,41 +38,6 @@ const ApecGaz = ({ data }) => {
   };
   const phoneNum = user?.other_phone_number;
 
-  const handleDownload = () => {
-    const input = document.body;
-    let sizeWidth = 1;
-    window.innerWidth >= 390
-      ? (sizeWidth = 2.8)
-      : window.innerWidth <= 375
-      ? (sizeWidth = 2.5)
-      : (sizeWidth = 2.7);
-    if (window.innerWidth >= 405) {
-      sizeWidth = 3.2;
-    }
-    if (window.innerWidth <= 420 && window.innerWidth >= 405) {
-      sizeWidth = 3;
-    }
-
-    html2canvas(input, { width: window.width, height: window.height }).then(
-      (canvas) => {
-        const imgWidth = canvas.width;
-        const imgHeight = canvas.height;
-        let quarter = imgWidth / sizeWidth;
-        if (qrShow) quarter = 1;
-        console.log(imgWidth);
-        const imgData = canvas.toDataURL("image/png");
-        const pdf = new jsPDF({
-          orientation: "portrait", // adjust orientation if needed
-          unit: "px",
-          format: [imgWidth - quarter, imgHeight], // set PDF dimensions to match the screenshot
-          marginLeft: 0,
-        });
-
-        pdf.addImage(imgData, "PNG", 0, 0, imgWidth, imgHeight);
-        pdf.save("cardQr.pdf");
-      }
-    );
-  };
   if (qrShow) {
     return (
       <div className="mainPage2">
@@ -187,7 +153,7 @@ const ApecGaz = ({ data }) => {
               href={`https://wa.me/${`${user.phone_number}`}`}
               className="link2"
             >
-              +{user.phone_number}
+              +961{user.phone_number}
             </Link>
           </h3>
           {phoneNum ? (
@@ -212,14 +178,28 @@ const ApecGaz = ({ data }) => {
           </Link>
         </div>
       </div>
-
-      <div
-        className="download2  redIcon2"
-        onClick={() => download(url, "Apec.pdf")}
-      >
-        <h3>Download</h3>
-        <p>our company profile</p>
+      <div className="actions">
+        <div className="qrShow2">
+          <QRCode
+            value={`https://card.apec.com.lb/?id=${user.id}`}
+            size={35}
+            fgColor="black"
+            bgColor="white"
+            onClick={() => {
+              setDownloadQr(true);
+            }}
+          />
+          <h3>Download</h3>
+        </div>
+        <div
+          className="download2  redIcon2"
+          onClick={() => download(url, "Apec.pdf")}
+        >
+          <h3>Download</h3>
+          <p>our company profile</p>
+        </div>
       </div>
+      {downloadQr ? <Download data={data} /> : null}
     </div>
   );
 };

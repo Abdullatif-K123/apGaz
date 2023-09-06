@@ -12,11 +12,10 @@ import doted2 from "../../public/assets/svg/Group -1.svg";
 import earth from "/public/assets/png&jpg/earth-ico.png";
 import person from "/public/assets/png&jpg/person.jpg";
 import useDownloader from "react-use-downloader";
-import html2canvas from "html2canvas";
 import QRCode from "react-qr-code";
-import { saveAs } from "file-saver";
-import jsPDF from "jspdf";
+import Download from "./Download";
 const EcoGaz = ({ data }) => {
+  const [downloadQr, setDownloadQr] = useState(false);
   const imageRef = useRef(null);
   const page1 = useRef(null);
   const page2 = useRef(null);
@@ -39,13 +38,20 @@ const EcoGaz = ({ data }) => {
 
   return (
     <div className="mainPage3" id="mainPage3" ref={page1}>
-      <Image src={doted2} width={450} height={270} className="dotedImage3" />
+      <Image
+        src={doted2}
+        width={450}
+        height={270}
+        className="dotedImage3"
+        alt="."
+      />
       <Link href="https://apec.com.lb/">
         <Image
           src={echoGaz}
           width={145}
           height={125}
           style={{ marginTop: "-20px", marginBottom: "10px" }}
+          alt="ecogaz logo"
         />
       </Link>
       <div className="personalInfo3">
@@ -56,6 +62,7 @@ const EcoGaz = ({ data }) => {
             height={134}
             className="personImg2"
             style={{ objectFit: "cover" }}
+            alt="person alt"
           />
         ) : (
           <Image
@@ -66,6 +73,7 @@ const EcoGaz = ({ data }) => {
             className="personImg3"
             onError={handleImageError}
             ref={imageRef}
+            alt="person pic"
           />
         )}
         <div className="personNameCarrer3">
@@ -124,7 +132,7 @@ const EcoGaz = ({ data }) => {
               passHref
               className="iconBorderWeb iconBorder3"
             >
-              <Image src={earth} width={20} height={20} />
+              <Image src={earth} width={20} height={20} alt="earth logo" />
             </Link>
           </div>
         </div>
@@ -134,7 +142,7 @@ const EcoGaz = ({ data }) => {
               href={`https://wa.me/${`${user.phone_number}`}`}
               className="link3"
             >
-              +{user.phone_number}
+              +961{user.phone_number}
             </Link>
           </h3>
           {phoneNum ? (
@@ -159,18 +167,33 @@ const EcoGaz = ({ data }) => {
               width={43}
               height={43}
               className="poLogoApec"
+              alt="apec logo"
             />
           </Link>
         </div>
       </div>
-
-      <div
-        className="download3  redIcon3"
-        onClick={() => download(url, "Apec.pdf")}
-      >
-        <h3>Download</h3>
-        <p>our company profile</p>
+      <div className="actions actionEco">
+        <div className="qrShow2">
+          <QRCode
+            value={`https://card.apec.com.lb/?id=${user.id}`}
+            size={35}
+            fgColor="#0f8642"
+            bgColor="white"
+            onClick={() => {
+              setDownloadQr(true);
+            }}
+          />
+          <h3 style={{ color: " #0f8642" }}>Download</h3>
+        </div>
+        <div
+          className="download3  redIcon3"
+          onClick={() => download(url, "Apec.pdf")}
+        >
+          <h3>Download</h3>
+          <p>our company profile</p>
+        </div>
       </div>
+      {downloadQr ? <Download data={data} /> : null}
     </div>
   );
 };

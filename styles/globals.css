@@ -161,18 +161,11 @@ body {
     position: absolute;
     top: 50%;
     left: 30%;
-    transform: translate(-30%, -50%);
+    transform: translate(-30%, 50%);
 
     z-index: 2;
   }
-  .dotedImage2 {
-    position: absolute;
-    top: 50%;
-    right: 30%;
-    transform: translate(30%, -50%);
 
-    z-index: 2;
-  }
   .personalInfo1 {
     background-color: #0060ad;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
@@ -342,7 +335,7 @@ body {
   }
   .dotedImage21 {
     position: absolute;
-    top: 50%;
+    top: 48%;
     left: 80%;
     transform: translate(-50%, -50%);
 
@@ -479,12 +472,16 @@ body {
     cursor: pointer;
     border-top-right-radius: 10px;
     box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
+
   .qrShow2 > h3 {
     color: #484848;
     font-family: "Montserrat";
     font-weight: 600;
-    font-size: 13pt;
+    font-size: 10pt;
     text-align: center;
   }
   .scan2 > h1 {

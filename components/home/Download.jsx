@@ -34,8 +34,8 @@ const Download = ({ data }) => {
     }
   }, []);
   return (
-    <div className="downloadPage">
-      <div style={{ display: "none" }}>
+    <div className="downloadPage" style={{ display: "none" }}>
+      <div>
         <QrCode
           value={`https://card.apec.com.lb/?id=${user.id}`}
           documentId={user.id}

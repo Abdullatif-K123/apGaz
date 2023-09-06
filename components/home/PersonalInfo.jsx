@@ -14,10 +14,12 @@ import person from "/public/assets/png&jpg/person.jpg";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
 import QRCode from "react-qr-code";
-
+import Download from "./Download";
 import doted3 from "../../public/assets/svg/Group -3.svg";
 const PersonalInfo = ({ data }) => {
   const [qrShow, setQrShow] = useState(false);
+
+  const [downloadQr, setDownloadQr] = useState(false);
   console.log(data);
   const [imageError, setImageError] = useState(false);
   const { download } = useDownloader();
@@ -72,7 +74,7 @@ const PersonalInfo = ({ data }) => {
     return (
       <div className="mainPage">
         <div className="scan scan">
-          <Image src={apecWhite} width={185} height={145} />
+          <Image src={apecWhite} width={185} height={145} alt="apec logo" />
           <QRCode
             value={`https://card.apec.com.lb/?id=${user.id}`}
             size={190}
@@ -92,7 +94,13 @@ const PersonalInfo = ({ data }) => {
   }
   return (
     <div className="mainPage">
-      <Image src={doted2} width={450} height={270} className="dotedImage3" />
+      <Image
+        src={doted2}
+        width={450}
+        height={270}
+        className="dotedImage3"
+        alt="."
+      />
       <Link href="https://apec.com.lb/">
         <Image
           src={apecWhite}
@@ -176,7 +184,7 @@ const PersonalInfo = ({ data }) => {
               passHref
               className="iconBorderweb"
             >
-              <Image src={earth} width={20} height={20} />
+              <Image src={earth} width={20} height={20} alt="earth" />
             </Link>
           </div>
         </div>
@@ -186,7 +194,7 @@ const PersonalInfo = ({ data }) => {
               href={`https://wa.me/${`${user.phone_number}`}`}
               className="link"
             >
-              +{user.phone_number}
+              +961{user.phone_number}
             </Link>
           </h3>
           {phoneNum ? (
@@ -204,14 +212,28 @@ const PersonalInfo = ({ data }) => {
           </h3>
         </div>
       </div>
-
-      <div
-        className="download  redIcon2"
-        onClick={() => download(url, "Apec.pdf")}
-      >
-        <h3>Download</h3>
-        <p>our company profile</p>
+      <div className="actions" style={{ backgroundColor: "#c11821" }}>
+        <div className="qrShow2">
+          <QRCode
+            value={`https://card.apec.com.lb/?id=${user.id}`}
+            size={35}
+            fgColor="#c11622"
+            bgColor="white"
+            onClick={() => {
+              setDownloadQr(true);
+            }}
+          />
+          <h3>Download</h3>
+        </div>
+        <div
+          className="download  redIcon2"
+          onClick={() => download(url, "Apec.pdf")}
+        >
+          <h3>Download</h3>
+          <p>our company profile</p>
+        </div>
       </div>
+      {downloadQr ? <Download data={data} /> : null}
     </div>
   );
 };

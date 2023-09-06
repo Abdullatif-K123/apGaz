@@ -7,17 +7,17 @@ import { FaInstagram } from "react-icons/fa";
 import apGaz from "../../public/assets/svg/apGaz.svg";
 import apecWhite from "../../public/assets/svg/apeWhite.svg";
 import Link from "next/link";
-import redoted from "../../public/assets/svg/redDoted.svg";
 import earthBlue from "/public/assets/png&jpg/earthBlue.png";
 import person from "/public/assets/png&jpg/person.jpg";
 import useDownloader from "react-use-downloader";
-import jsPDF from "jspdf";
-import html2canvas from "html2canvas";
 import QRCode from "react-qr-code";
 import doted3 from "../../public/assets/svg/Group -3.svg";
+import Download from "./Download";
+import redDoted from "/public/assets/svg/redDoted.svg";
 const APGaz = ({ data }) => {
   const [qrShow, setQrShow] = useState(false);
   const [imageError, setImageError] = useState(false);
+  const [downloadQr, setDownloadQr] = useState(false);
   const { download } = useDownloader();
   const url = "https://dashboard.apec.com.lb/api/setting/download/pdfBrochure";
   const { social_link } = data;
@@ -31,42 +31,6 @@ const APGaz = ({ data }) => {
   };
 
   const phoneNum = user?.other_phone_number;
-
-  const handleDownload = () => {
-    const input = document.body;
-    let sizeWidth = 1;
-    window.innerWidth >= 390
-      ? (sizeWidth = 2.8)
-      : window.innerWidth <= 375
-      ? (sizeWidth = 2.5)
-      : (sizeWidth = 2.7);
-    if (window.innerWidth >= 405) {
-      sizeWidth = 3.2;
-    }
-    if (window.innerWidth <= 420 && window.innerWidth >= 405) {
-      sizeWidth = 3;
-    }
-
-    html2canvas(input, { width: window.width, height: window.height }).then(
-      (canvas) => {
-        const imgWidth = canvas.width;
-        const imgHeight = canvas.height;
-        let quarter = imgWidth / sizeWidth;
-        if (qrShow) quarter = 1;
-        console.log(imgWidth);
-        const imgData = canvas.toDataURL("image/png");
-        const pdf = new jsPDF({
-          orientation: "portrait", // adjust orientation if needed
-          unit: "px",
-          format: [imgWidth - quarter, imgHeight], // set PDF dimensions to match the screenshot
-          marginLeft: 0,
-        });
-
-        pdf.addImage(imgData, "PNG", 0, 0, imgWidth, imgHeight);
-        pdf.save("cardQr.pdf");
-      }
-    );
-  };
   if (qrShow) {
     return (
       <div className="mainPage2">
@@ -91,7 +55,8 @@ const APGaz = ({ data }) => {
   }
   return (
     <div className="mainPage1">
-      <Image src={doted3} width={450} height={270} className="dotedImage3" />
+      <Image src={redDoted} width={450} height={270} className="dotedImage2" />
+      <Image src={redDoted} width={450} height={270} className="dotedImage21" />
       <Link href="https://apec.com.lb/">
         {" "}
         <Image src={apGaz} width={197} height={96} />
@@ -181,7 +146,7 @@ const APGaz = ({ data }) => {
               href={`https://wa.me/${`${user.phone_number}`}`}
               className="link1"
             >
-              +{user.phone_number}
+              +961{user.phone_number}
             </Link>
           </h3>
           {phoneNum ? (
@@ -205,14 +170,28 @@ const APGaz = ({ data }) => {
           </Link>
         </div>
       </div>
-
-      <div
-        className="download1  redIcon2"
-        onClick={() => download(url, "Apec.pdf")}
-      >
-        <h3>Download</h3>
-        <p>our company profile</p>
+      <div className="actions">
+        <div className="qrShow2">
+          <QRCode
+            value={`https://card.apec.com.lb/?id=${user.id}`}
+            size={35}
+            fgColor="#da001a"
+            bgColor="white"
+            onClick={() => {
+              setDownloadQr(true);
+            }}
+          />
+          <h3 style={{ color: "#da001a" }}>Download</h3>
+        </div>
+        <div
+          className="download1  redIcon2"
+          onClick={() => download(url, "Apec.pdf")}
+        >
+          <h3>Download</h3>
+          <p>our company profile</p>
+        </div>
       </div>
+      {downloadQr ? <Download data={data} /> : null}
     </div>
   );
 };
