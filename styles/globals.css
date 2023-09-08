@@ -231,6 +231,7 @@ body {
     color: #ffffff;
     font-family: "Montserrat";
     text-align: center;
+    width: 100%;
   }
   .personContact1 > h3:first-child {
     font-weight: 600;
@@ -240,7 +241,7 @@ body {
   .personContact1 h3:not(:last-child) {
     border-bottom: 1px solid #ffffff;
     padding-bottom: 20px;
-    width: 120%;
+    width: 80%;
   }
   .personContact1 h3:not(:first-child) {
     font-weight: 400;
@@ -409,6 +410,7 @@ body {
     color: #ffffff;
     font-family: "Montserrat";
     text-align: center;
+    width: 100%;
   }
   .personContact2 > h3:first-child {
     font-weight: 600;
@@ -418,7 +420,7 @@ body {
   .personContact2 h3:not(:last-child) {
     border-bottom: 1px solid #ffffff;
     padding-bottom: 20px;
-    width: 120%;
+    width: 80%;
   }
   .personContact2 h3:not(:first-child) {
     font-weight: 400;
@@ -634,6 +636,7 @@ body {
     color: #6f6f6f;
     font-family: "Montserrat";
     text-align: center;
+    width: 100%;
   }
   .personContact3 > h3:first-child {
     font-weight: 600;
@@ -643,7 +646,7 @@ body {
   .personContact3 h3:not(:last-child) {
     border-bottom: 1px solid #6f6f6f;
     padding-bottom: 20px;
-    width: 120%;
+    width: 80%;
   }
   .personContact3 h3:not(:first-child) {
     font-weight: 400;
@@ -746,7 +749,7 @@ body {
 
 /* APEC personal */
 /* Styles for screens with a width of 390 pixels or less */
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 490px) {
   .mainPage {
     background: #c11821;
     position: relative;
@@ -842,6 +845,7 @@ body {
     color: #484848;
     font-family: "Montserrat";
     text-align: center;
+    width: 100%;
   }
   .personContact > h3:first-child {
     font-weight: 600;
@@ -851,10 +855,15 @@ body {
   .personContact h3:not(:last-child) {
     border-bottom: 1px solid black;
     padding-bottom: 20px;
-    width: 120%;
+    width: 80%;
   }
   .personContact h3:not(:first-child) {
     font-weight: 400;
+  }
+  .mailall {
+    font-size: 16px;
+    width: 93%;
+    word-wrap: break-word;
   }
   .link {
     text-decoration: none;

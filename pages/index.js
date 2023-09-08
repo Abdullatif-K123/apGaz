@@ -16,7 +16,7 @@ export default function Home({ data, downloads }) {
   if (data.user.company === "Apec Gas")
     return downloads ? <Download data={data} /> : <ApecGaz data={data} />;
   if (data.user.company === "Apgaz")
-    return downloads ? <Download data={data} /> : <PersonalInfo data={data} />;
+    return downloads ? <Download data={data} /> : <APGaz data={data} />;
 }
 
 export async function getServerSideProps(context) {

@@ -176,41 +176,6 @@ const ApGazPdf = ({ data, id }) => {
             <Text style={styles.personName3}>{remainingName}</Text>
             <Text style={styles.personName2}>{user.position}</Text>
           </View>
-          <View style={styles.peronalSocial3}>
-            <View>
-              <View style={styles.iconBorder3}>
-                <Image
-                  src="/assets/png&jpg/instgramBlue.png"
-                  style={styles.socialIcon3}
-                />
-              </View>
-            </View>
-            <View>
-              <View style={styles.iconBorder3}>
-                <Image
-                  src="/assets/png&jpg/facebookBlue.png"
-                  style={styles.socialIcon3}
-                />
-              </View>
-            </View>
-            <View>
-              <View style={styles.iconBorder3}>
-                <Image
-                  src="/assets/png&jpg/tiktokBlue.png"
-                  style={styles.socialIcon3}
-                />
-              </View>
-            </View>
-            <View>
-              <View style={styles.iconBorder3}>
-                <Image
-                  AllowDangerousPaths
-                  src="/assets/png&jpg/linkedinBlue.png"
-                  style={styles.socialIcon3}
-                />
-              </View>
-            </View>
-          </View>
           <View style={styles.personContact3}>
             <View style={styles.showBorder}>
               <Text style={styles.personText}>+{user.phone_number}</Text>

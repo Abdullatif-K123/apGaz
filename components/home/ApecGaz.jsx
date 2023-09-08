@@ -164,7 +164,7 @@ const ApecGaz = ({ data }) => {
             </h3>
           ) : null}
           <h3>{user.location}</h3>
-          <h3>
+          <h3 className="mailall">
             <Link href={`mailto:${user.email}`} className="link2">
               {user.email}
             </Link>
