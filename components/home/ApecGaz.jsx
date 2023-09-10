@@ -150,7 +150,7 @@ const ApecGaz = ({ data }) => {
         <div className="personContact2">
           <h3>
             <Link
-              href={`https://wa.me/${`${user.phone_number}`}`}
+              href={`https://wa.me/${`+961${user.phone_number}`}`}
               className="link2"
             >
               +961{user.phone_number}

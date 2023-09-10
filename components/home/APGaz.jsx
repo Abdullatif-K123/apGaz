@@ -143,7 +143,7 @@ const APGaz = ({ data }) => {
         <div className="personContact1">
           <h3>
             <Link
-              href={`https://wa.me/${`${user.phone_number}`}`}
+              href={`https://wa.me/${`+961${user.phone_number}`}`}
               className="link1"
             >
               +961{user.phone_number}

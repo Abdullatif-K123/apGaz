@@ -186,7 +186,7 @@ const ApecGazPdf = ({ data, id }) => {
 
           <View style={styles.personContact3}>
             <View style={styles.showBorder}>
-              <Text style={styles.personText}>+{user.phone_number}</Text>
+              <Text style={styles.personText}>+961{user.phone_number}</Text>
             </View>
             {phoneNum ? (
               <View style={styles.showBorder}>

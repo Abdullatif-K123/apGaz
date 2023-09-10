@@ -139,7 +139,7 @@ const EcoGaz = ({ data }) => {
         <div className="personContact3">
           <h3>
             <Link
-              href={`https://wa.me/${`${user.phone_number}`}`}
+              href={`https://wa.me/${`+961${user.phone_number}`}`}
               className="link3"
             >
               +961{user.phone_number}
