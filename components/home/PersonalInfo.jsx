@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import apecWhite from "../../public/assets/svg/apeWhite.svg";
 import rnPerson from "../../public/assets/png&jpg/rnPerson.jpg";
@@ -20,7 +20,7 @@ const PersonalInfo = ({ data }) => {
   const [qrShow, setQrShow] = useState(false);
 
   const [downloadQr, setDownloadQr] = useState(false);
-  console.log(data);
+ 
   const [imageError, setImageError] = useState(false);
   const { download } = useDownloader();
   const url = "https://dashboard.apec.com.lb/api/setting/download/pdfBrochure";
@@ -33,7 +33,16 @@ const PersonalInfo = ({ data }) => {
   const handleImageError = () => {
     setImageError(true);
   };
-
+  //side effect for downloading the pdf 
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      setDownloadQr(false);
+    }, 3000);
+  
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  }, [download, setDownloadQr]);
   const phoneNum = user?.other_phone_number;
   const handleDownload = () => {
     const input = document.body;
@@ -222,7 +231,6 @@ const PersonalInfo = ({ data }) => {
         <Link href={url} style={{textDecoration: "none"}}>
         <div
           className="download  redIcon2"
-          
         >
           <h3>Download</h3>
           <p>our company profile</p>

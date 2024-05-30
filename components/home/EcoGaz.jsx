@@ -35,7 +35,16 @@ const EcoGaz = ({ data }) => {
   };
 
   const phoneNum = user?.other_phone_number;
+//side effect for downloading the pdf 
+useEffect(() => {
+  const timeoutId = setTimeout(() => {
+    setDownloadQr(false);
+  }, 3000);
 
+  return () => {
+    clearTimeout(timeoutId);
+  };
+}, [download, setDownloadQr]);
   return (
     <div className="mainPage3" id="mainPage3" ref={page1}>
           <Image src="/assets/png&jpg/homeBackground.png" width={350} height={230} alt="backgroud" style={{bottom: "20%" , width: "100%", position: "absolute", }}/>

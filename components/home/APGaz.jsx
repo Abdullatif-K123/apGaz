@@ -30,7 +30,16 @@ const APGaz = ({ data }) => {
   const handleImageError = () => {
     setImageError(true);
   };
+//side effect for downloading the pdf 
+useEffect(() => {
+  const timeoutId = setTimeout(() => {
+    setDownloadQr(false);
+  }, 3000);
 
+  return () => {
+    clearTimeout(timeoutId);
+  };
+}, [download, setDownloadQr]);
   const phoneNum = user?.other_phone_number;
   if (qrShow) {
     return (

@@ -37,7 +37,16 @@ const ApecGaz = ({ data }) => {
     setImageError(true);
   };
   const phoneNum = user?.other_phone_number;
+//side effect for downloading the pdf 
+useEffect(() => {
+  const timeoutId = setTimeout(() => {
+    setDownloadQr(false);
+  }, 3000);
 
+  return () => {
+    clearTimeout(timeoutId);
+  };
+}, [download, setDownloadQr]);
   if (qrShow) {
     return (
       <div className="mainPage2">
